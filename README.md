@@ -199,7 +199,7 @@ multiple default cases
 <br>
 
 
-### 👉 Uniform variable syntax
+### 👉 IntlChar
 
 You need to have Intl extension installed.
 
