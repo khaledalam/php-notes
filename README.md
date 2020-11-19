@@ -292,6 +292,7 @@ vary
 ```
 
 > NGINX `in (/etc/nginx/sites-available/your-virtual-host-conf-file)`
+
 ```apacheconf
 gzip on;
 gzip_vary on;
@@ -333,6 +334,24 @@ Nginx doesn't support such mods thus the PHP always used in a separate service.
 <br><br>
 
 ## 📚 Databases
+<br><br>
+
+
+--------
+
+<br><br>
+
+## 🐞 Debugging and Testing
+<br><br>
+
+
+
+
+--------
+
+<br><br>
+
+## 🔨 Tools
 <br><br>
 
 
