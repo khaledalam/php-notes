@@ -69,11 +69,6 @@ use Some\Namespace\{
     const CONST_2 
 };
 ```
-```php
-use Some\Namespace\{ Class_1, Class_2 };
-use function Some\Namespace\{ Func_1, Func_2 };
-use const Some\Namespace\{ CONST_1, CONST_2 };
-```
 
 >> In PHP, it is not required to divide classes in subfolders
 according to their namespace, as is the case with other
