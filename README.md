@@ -9,7 +9,7 @@ Reach me out: <a href="mailto:khaledalam.net@gmail.com">khaledalam.net@gmail.com
 ---
 <br><br>
 
-## 👁  New Features in PHP 7
+## 🎉  New Features in PHP 7
 <br>
 
 ### 👉 Type hints
@@ -212,7 +212,7 @@ echo (IntlChar::isWhitespace(' ') ? 'Yes' : 'No') . PHP_EOL; // Yes
 
 <br><br>
 
-## 👁 Performance
+## 🛠 Performance
 <br><br>
 
 ### 👉 Caching static files 
@@ -325,6 +325,15 @@ Nginx doesn't support such mods thus the PHP always used in a separate service.
 
 >> NGINX provides two variables to adjust the resources, which are `worker_processes` and `worker_connections` . The worker_processes settings decide how many NGINX processes should run.<br><br>Now, how many `worker_processes` resources should we use? This depends on the server. Usually, it is one worker processes per processor core. So, if your server processor has four cores, this value can be set to 4.<br><br>`worker_connections` => `$ limit -u`
 
+
+
+
+--------
+
+<br><br>
+
+## 📚 Databases
+<br><br>
 
 
 
