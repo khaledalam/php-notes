@@ -1,6 +1,15 @@
 <?php
 
 
+echo IntlChar::charName('!') . PHP_EOL; // EXCLAMATION MARK
+
+echo (IntlChar::isWhitespace(' ') ? 'Yes' : 'No') . PHP_EOL; // Yes
+
+
+
+
+/*
+
 $varName = 'name';
 
 $name = 'Khaled Alam';
@@ -11,11 +20,9 @@ echo ${$varName};
 
 
 
-
-
 // declare(strict_types = 1);
 
-/*
+
 function age(int $age)
 {
     return $age;

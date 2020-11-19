@@ -198,6 +198,21 @@ multiple default cases
 
 <br>
 
+
+### 👉 Uniform variable syntax
+
+You need to have Intl extension installed.
+
+```php
+echo IntlChar::charName('!') . PHP_EOL; // EXCLAMATION MARK
+
+echo (IntlChar::isWhitespace(' ') ? 'Yes' : 'No') . PHP_EOL; // Yes
+```
+
+<br>
+
+
+
 --------
 
 <br><br>
