@@ -220,15 +220,17 @@ echo (IntlChar::isWhitespace(' ') ? 'Yes' : 'No') . PHP_EOL; // Yes
 
 > Apache `in (.htaccess file)`
 
-```
+```apacheconf
 <FilesMatch "\.(ico|jpg|jpeg|png|gif|css|js|woff)$">
 Header set Cache-Control "max-age=604800, public
 </FileMatch>
 ```
+`604800 = 7days`
+<br><br>
 
 > NGINX `in (/etc/nginx/sites-available/your-virtual-host-conf-file)`
 
-```
+```apacheconf
 Location ~* .(ico|jpg|jpeg|png|gif|css|js|woff)$ {
 Expires 7d;
 }
@@ -248,7 +250,7 @@ established.
 
 > Apache `in (.htaccess file)`
 
-```
+```apacheconf
 <ifModule mod_headers.c>
 Header set Connection keep-alive
 </ifModule>
@@ -260,7 +262,7 @@ KeepAliveTimeout 100
 
 > NGINX `in (/etc/nginx/sites-available/your-virtual-host-conf-file)`
 
-```
+```apacheconf
 keepalive_requests 100
 keepalive_timeout 100
 ```
@@ -276,7 +278,7 @@ that are small in size. This way, the contents are loaded fast.
 
 > Apache `in (.htaccess file)`
 
-```
+```apacheconf
 <IfModule mod_deflate.c>
 SetOutputFilter DEFLATE
 #Add filters to different content types
@@ -290,7 +292,7 @@ vary
 ```
 
 > NGINX `in (/etc/nginx/sites-available/your-virtual-host-conf-file)`
-```
+```apacheconf
 gzip on;
 gzip_vary on;
 gzip_types text/plain text/xml text/css text/javascript application/x-
