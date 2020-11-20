@@ -114,8 +114,9 @@ class Khaled{
 
 ### 👉 The Spaceship operator
 
+<br>
 
-`<=>`
+operator: `<=>`
 ```
 - It returns 0 if both the operands on left- and right-hand sides are equal
 
@@ -256,9 +257,10 @@ Header set Connection keep-alive
 </ifModule>
 
 KeepAlive On
-MaxKeepAliveRequests 100 (0 = unlimited)
+MaxKeepAliveRequests 100
 KeepAliveTimeout 100
 ```
+MaxKeepAliveRequests 0 (0 = unlimited)<br><br>
 
 > NGINX `in (/etc/nginx/sites-available/your-virtual-host-conf-file)`
 
@@ -334,6 +336,65 @@ Nginx doesn't support such mods thus the PHP always used in a separate service.
 <br><br>
 
 ## 📚 Databases
+<br><br>
+
+### 👉 Query caching
+
+check query caching
+`$ SHOW VARIABLES LIKE 'have_query_cache';`
+<img src="images/db_check_query_cache.png">
+
+
+to enable it in `my.cnf` file add
+
+```conf
+query_cache_type = 1
+query_cache_size = 128MB
+query_cache_limit = 1MB
+```
+
+then save and restart MySQL server.
+<a href="https://dev.mysql.com/doc/refman/5.6/en/query-cache-configuration.html">more details</a>.
+
+<br><br>
+
+### 👉 Storage engines
+Common ones MyISAM and InnoDB(default, >= v5.5)
+<img src="images/engines.png"><br>
+the storage engine is the table's base, and different tables can have different storage engines in a single database.
+
+change table engine:
+
+```sql
+ALTER TABLE some_table ENGINE=INNODB;
+```
+
+
+
+MyISAM|INNODB
+---|---
+✅ Good speed with fetch(SELECT)| ✅ Good
+❌ Less update/delete| ✅ Good
+✅ Table-level locking | ✅ Row-level locking
+❌ **NO support** for foreign keys| ✅ Support foreign keys and forcing fks constraints 
+✅ Support full-text search|
+❌ **NO support** for transactions (COMMIT/ROLLBACK)| ✅ Support transactions (COMMIT/ROLLBACK)
+✅ Support data compression, replication, query caching, data encryption | ✅ Support data compression, replication, query caching, data encryption
+❌ **NO support** cluster database | ✅ can be used in cluster environment (but it does not have full support), Can be converted to NDB storage engine.
+
+`innodb_buffer_pool_size` => the recommended
+value is 50-80% of the installed RAM memory on the server.<br>
+`innodb_buffer_pool_instances` => the recommended 1 instance per GB(innodb_bufer_pool_size)<br>
+`innodb_log_file_size` => the recommended between 1 and 4 GB<br>
+
+<br><br>
+
+The Percona Server - a fork of MySQL (Linux)<br>
+uses `XtraDB` engine which is an enhanced version of the InnoDB storage engine.
+
+<br><br>
+
+### 👉 In-memory caching
 <br><br>
 
 
