@@ -4,7 +4,7 @@ Khaled Alam's notes. Ref: books, articles, discussions, my experience.<br>
 
 Reach me out: <a href="mailto:khaledalam.net@gmail.com">khaledalam.net@gmail.com</a> &nbsp; &nbsp; | &nbsp; &nbsp; <a href="https://linkedin.com/in/khaledalam">LinkedIn</a><br><br>
 
-<img src="php7.jpg"><Br><br>
+<img src="images/php7.jpg"><Br><br>
 
 ---
 <br><br>
@@ -223,7 +223,7 @@ echo (IntlChar::isWhitespace(' ') ? 'Yes' : 'No') . PHP_EOL; // Yes
 
 ```apacheconf
 <FilesMatch "\.(ico|jpg|jpeg|png|gif|css|js|woff)$">
-Header set Cache-Control "max-age=604800, public
+    Header set Cache-Control "max-age=604800, public
 </FileMatch>
 ```
 `604800 = 7days`
@@ -233,7 +233,7 @@ Header set Cache-Control "max-age=604800, public
 
 ```apacheconf
 Location ~* .(ico|jpg|jpeg|png|gif|css|js|woff)$ {
-Expires 7d;
+    Expires 7d;
 }
 ```
 
@@ -253,7 +253,7 @@ established.
 
 ```apacheconf
 <ifModule mod_headers.c>
-Header set Connection keep-alive
+    Header set Connection keep-alive
 </ifModule>
 
 KeepAlive On
@@ -282,14 +282,11 @@ that are small in size. This way, the contents are loaded fast.
 
 ```apacheconf
 <IfModule mod_deflate.c>
-SetOutputFilter DEFLATE
-#Add filters to different content types
-AddOutputFilterByType DEFLATE text/html text/plain text/xml
-text/
-css text/javascript application/javascript
-#Don't compress images
-SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-
-vary
+    SetOutputFilter DEFLATE
+    #Add filters to different content types
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+    #Don't compress images
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
 </IfModule>
 ```
 
@@ -298,8 +295,7 @@ vary
 ```apacheconf
 gzip on;
 gzip_vary on;
-gzip_types text/plain text/xml text/css text/javascript application/x-
-javascript;
+gzip_types text/plain text/xml text/css text/javascript application/x-javascript;
 gzip_com_level 4;
 ```
 
@@ -315,10 +311,10 @@ Nginx doesn't support such mods thus the PHP always used in a separate service.
 ### 👉 Disabling unused modules
 
 > Apache
-`sudo apachectl –M`
+`$ sudo apachectl –M`
 
 > NGINX
-`sudo Nginx –V`
+`$ sudo Nginx –V`
 
 <br>
 
