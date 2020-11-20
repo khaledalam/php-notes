@@ -1,4 +1,4 @@
-# PHP 7 Notes
+# PHP Notes
 
 Khaled Alam's notes. Ref: books, articles, discussions, my experience.<br>
 
