@@ -3,13 +3,108 @@
 Khaled Alam's notes. Ref: books, articles, discussions, my experience.<br>
 
 Reach me out: <a href="mailto:khaledalam.net@gmail.com">khaledalam.net@gmail.com</a> &nbsp; &nbsp; | &nbsp; &nbsp; <a href="https://linkedin.com/in/khaledalam">LinkedIn</a><br><br>
+If you find this repo useful don't forget to give it a star ⭐
+
+<br>
 
 <img src="images/php7.jpg"><Br><br>
 
 ---
 <br><br>
 
-## 🎉  New Features in PHP 7
+## 🎉  Some of new features in PHP 8 <small><i>(will be released in November 26, 2020)</i></small>
+
+<br>
+
+### 👉 Union types
+
+```php
+public function foo(Foo|Bar $khaled): int|float;
+
+public function foo(Foo|null $foo): void;
+
+public function bar(?Bar $bar): void;
+```
+<br>
+
+### 👉 The nullsafe operator
+
+
+```php
+// in old PHP versions
+$obj = $khaled->getHints();
+$result = $obj ? $obj->level(5) : null;
+
+// in PHP 8 you can use 1 line
+$result = $khaled->getHints()?->level(5);
+```
+<br>
+
+### 👉 Constructor property promotion
+
+```php
+// in old PHP version
+class KhaledAlam 
+{
+    public Mood $mood;
+    private Creativity $creativity;
+    
+    public function __construct(
+        Mood $mood,
+        Creativity $creativity,
+    ) {
+        $this->mood = $mood;
+        $this->creativity = $creativity;
+    }
+}
+
+// in PHP 8 you can use parameters only in constructor
+class KhaledAlam 
+{
+    public function __construct(
+        public Mood $mood,
+        private Creativity $creativity,
+    ) {}
+}
+```
+
+<br>
+
+### 👉 Throw expressions in many new places
+```php
+$khaled_alam = $_POST['new_ideas'] ?? throw new \Motivationless('rethink');
+```
+<br>
+
+### 👉 Allowing `::class` on objects
+```php
+// in old PHP versions
+$foo = new Foo();
+var_dump(get_class($foo));
+
+// in PHP 8 you can use `::class`
+var_dump($foo::class)
+````
+<br>
+
+### 👉 Allow trailing comma in parameter lists
+```php
+public function Khaled(
+    Translator $trans,
+    float $amount,  // <---
+) {
+    // …
+}
+```
+<br>
+
+<i><small>use google to read about more features.</i></small>
+
+--------
+
+<br><br>
+
+## 🎉  Some of new features in PHP 7
 <br>
 
 ### 👉 Type hints
@@ -207,7 +302,7 @@ echo (IntlChar::isWhitespace(' ') ? 'Yes' : 'No') . PHP_EOL; // Yes
 
 <br>
 
-
+<i><small>use google to read about more features.</i></small>
 
 --------
 
@@ -398,7 +493,22 @@ uses `XtraDB` engine which is an enhanced version of the InnoDB storage engine.
 
 <br><br>
 
-## 🐞 Debugging and Testing
+## 🐞 Debugging
+
+
+
+--------
+
+<br><br>
+
+## 🧪 Testing
+<br><br>
+
+--------
+
+<br><br>
+
+## 📈 Profiling
 <br><br>
 
 
@@ -413,13 +523,14 @@ uses `XtraDB` engine which is an enhanced version of the InnoDB storage engine.
 
 
 
-<br><br>
+<br>
 
 ---
 
-<br><br>
+<br>
 
-Updates and new notes are always welcomed.<br><br>
+Updates and new notes are always welcomed.<br>
 
+If you find this repo useful don't forget to give it a star ⭐
 
 Reach me out: <a href="mailto:khaledalam.net@gmail.com">khaledalam.net@gmail.com</a> &nbsp; &nbsp; | &nbsp; &nbsp; <a href="https://linkedin.com/in/khaledalam">LinkedIn</a>
