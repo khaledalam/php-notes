@@ -312,45 +312,66 @@ echo (IntlChar::isWhitespace(' ') ? 'Yes' : 'No') . PHP_EOL; // Yes
 <br><br>
 
 
-### 👉 Incrementing
+### 👉 Looping with variable size
 
-The use of ++ and -- before the variable on a incrementation is faster than after.
+When doing a loop which requires an element that has a variable size such as an array you need to fetch the size before running through the loop.
 
 
-> Slow:
+> Incorrect:
 ```php
-$i++;
-$j--;
+for ($i = 0; $i < sizeof($array); $i++)
+{
+    ...
+}
 ```
 
 
-> Fast:
+> Correct:
 
 ```php
-++$i;
---$j;
+$size = sizeof($array);
+for ($i = 0; $i < $size; ++$i)
+{
+    ...
+}
+
+/* OR */
+
+for ($i = 0, $size = sizeof($array); $i < $size; ++$i)
+{
+    ...
+}
 ```
 
 <br>
 
 
-### 👉 Incrementing
+### 👉 Inclusions
 
-The use of ++ and -- before the variable on a incrementation is faster than after.
+_once
+Using `include_once()` and `require_once()` is slower than `include()` and `require()` and should be using only in files where multiple inclusions might occur.
+
+
+<br>
+
+
+### 👉 Typecasting
+
+Using a type casting functions is slower that using direct typecasting
 
 
 > Slow:
 ```php
-$i++;
-$j--;
+$i = intval($value);
+$j = settype($var, 'float');
 ```
 
 
 > Fast:
 
 ```php
-++$i;
---$j;
+$i = (int) $value;
+$j = (float) $var;
 ```
 
 <br>
