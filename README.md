@@ -311,6 +311,72 @@ echo (IntlChar::isWhitespace(' ') ? 'Yes' : 'No') . PHP_EOL; // Yes
 ## 🛠 Performance
 <br><br>
 
+
+### 👉 Incrementing
+
+The use of ++ and -- before the variable on a incrementation is faster than after.
+
+
+> Slow:
+```php
+$i++;
+$j--;
+```
+
+
+> Fast:
+
+```php
+++$i;
+--$j;
+```
+
+<br>
+
+
+### 👉 Incrementing
+
+The use of ++ and -- before the variable on a incrementation is faster than after.
+
+
+> Slow:
+```php
+$i++;
+$j--;
+```
+
+
+> Fast:
+
+```php
+++$i;
+--$j;
+```
+
+<br>
+
+
+### 👉 Incrementing
+
+The use of ++ and -- before the variable on a incrementation is faster than after.
+
+
+> Slow:
+```php
+$i++;
+$j--;
+```
+
+
+> Fast:
+
+```php
+++$i;
+--$j;
+```
+
+<br>
+
 ### 👉 Caching static files 
 
 
