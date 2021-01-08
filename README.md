@@ -374,6 +374,12 @@ $i = (int) $value;
 $j = (float) $var;
 ```
 
+
+`(int)` typecast is ~ **2X** faster than `intval()`!<br>
+`(int)`  -> https://ideone.com/QggNGc - `0.22s 20520KB  - php 7.3.5`<br>
+`intval()` -> https://ideone.com/6Y8mPN  - `0.4s 20520KB - php 7.3.5`<br>
+benefit of `intval()` can be passed a base from which to convert. `(int)` cannot.
+
 <br>
 
 
